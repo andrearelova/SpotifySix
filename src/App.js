@@ -5,8 +5,9 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <h1>Hello, world!</h1>
-      <h1>Hello, world!</h1>
+      <h2>welcome to</h2>
+      <h1>six</h1>
+      <h1>a spotify project by joshua bautista, caleb o'malley and <br></br>andrea relova</h1>
     </div>
   );
 }
