@@ -1,3 +1,9 @@
+/*website colors:
+blue: #B5D4D8
+orange: #EAB38D
+white: #FFF5EE
+*/
+
 .App {
   background-color: #B5D4D8;
   min-height: 100vh;
@@ -7,16 +13,63 @@
   overflow: hidden;
 }
 
+.LandingWelcome {
+  font-size: 35px;
+  text-align: center;
+  color: #FFF5EE;
+  font-family: novel-mono-pro, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  padding: 0px;
+  margin-top: 15px;
+  margin-bottom: 0px;
+}
+
+.LandingText {
+  font-size: 35px;
+  text-align: center;
+  color: #FFF5EE;
+  font-family: novel-mono-pro, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  padding: 0px;
+  margin: 0px;
+}
+
+.LandingSix {
+  text-align: center;
+  color: #EAB38D;
+  font-family: acumin-pro-wide, sans-serif;
+  font-weight: 800;
+  font-style: italic;
+  font-size: 200px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.PlayButton {
+  align-self: center;
+  margin-top: 30px;
+  width: 150px;
+  height: 75px;
+  border: none;
+  font-family: novel-mono-pro, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #FFF5EE;
+  background-color: #EAB38D;
+  border-radius: 25px;
+}
+
 .FooterElement {
   margin-bottom: 50%;
   text-align: center;
   font-family: acumin-pro-wide, sans-serif;
-  font-style: normal;
-  font-weight: 900;
+  font-weight: 800;
+  font-style: italic;
   flex-grow: 1;
   color: #EAB38D;
   font-size: 20px;
-
 }
 
 .FooterBar {
