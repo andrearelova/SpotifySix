@@ -49,6 +49,8 @@ white: #FFF5EE
 
 .PlayButton {
   align-self: center;
+  text-align: center;
+  text-decoration: none;
   margin-top: 30px;
   width: 150px;
   height: 75px;
@@ -59,6 +61,7 @@ white: #FFF5EE
   color: #FFF5EE;
   background-color: #EAB38D;
   border-radius: 25px;
+  line-height: 70px;
 }
 
 .FooterElement {
@@ -79,4 +82,81 @@ white: #FFF5EE
   bottom: 0;
   width: 100%;
   height: 70px;
+}
+
+.FooterButton {
+  text-align: center;
+  background-color: #FFF5EE;
+  color: #EAB38D;
+  font-family: acumin-pro-wide, sans-serif;
+  border: none;
+  font-weight: 800;
+  font-style: italic;
+  font-size: 30px;
+  height: 60px;
+  width: 95%;
+  text-decoration: none;
+  margin-top: 5px;
+  line-height: 60px;
+}
+
+.AboutHeader {
+  background-color: #FFF5EE;
+  color: #EAB38D;
+  font-size: 75px;
+  font-family: acumin-pro-wide, sans-serif;
+  text-align: center;
+  font-style: italic;
+}
+
+.AboutText {
+  color: #FFF5EE;
+  font-size: 30px;
+  font-family: novel-mono-pro, sans-serif;
+  font-weight: bold;
+  margin-left: 10px;
+  margin-top: 0;
+}
+
+.HomeButton {
+  display: inline-block;
+  margin-top: 0;
+  text-align: center;
+  text-decoration: none;
+  width: 150px;
+  height: 75px;
+  border: none;
+  font-family: novel-mono-pro, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  font-style: italic;
+  color: #FFF5EE;
+  background-color: #EAB38D;
+  border-radius: 25px;
+  margin-left: 8px;
+  line-height: 80px;
+}
+
+.PlayInAbout {
+  display: inline-block;
+  margin-top: 0;
+  margin-left: 1102px;
+  align-content: flex-end;
+  text-align: center;
+  text-decoration: none;
+  width: 150px;
+  height: 75px;
+  border: none;
+  font-family: novel-mono-pro, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  font-style: italic;
+  color: #FFF5EE;
+  background-color: #EAB38D;
+  border-radius: 25px;
+  line-height: 80px;
+}
+
+.Italic {
+  font-style: italic;
 }
