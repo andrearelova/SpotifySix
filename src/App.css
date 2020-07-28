@@ -120,7 +120,6 @@ white: #FFF5EE
 
 .HomeButton {
   display: inline-block;
-  margin-top: 0;
   text-align: center;
   text-decoration: none;
   width: 150px;
@@ -139,9 +138,6 @@ white: #FFF5EE
 
 .PlayInAbout {
   display: inline-block;
-  margin-top: 0;
-  margin-left: 1102px;
-  align-content: flex-end;
   text-align: center;
   text-decoration: none;
   width: 150px;
@@ -154,6 +150,7 @@ white: #FFF5EE
   color: #FFF5EE;
   background-color: #EAB38D;
   border-radius: 25px;
+  margin-left: 1102px;
   line-height: 80px;
 }
 
