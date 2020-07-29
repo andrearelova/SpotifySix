@@ -1,3 +1,216 @@
 .App {
+<<<<<<< Updated upstream
   
+=======
+  background-color: #B5D4D8;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 70px;
+  overflow: hidden;
+}
+
+.LandingWelcome {
+  font-size: 35px;
+  text-align: center;
+  color: #FFF5EE;
+  font-family: novel-mono-pro, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  padding: 0px;
+  margin-top: 15px;
+  margin-bottom: 0px;
+}
+
+.LandingText {
+  font-size: 35px;
+  text-align: center;
+  color: #FFF5EE;
+  font-family: novel-mono-pro, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  padding: 0px;
+  margin: 0px;
+}
+
+.LandingSix {
+  text-align: center;
+  color: #EAB38D;
+  font-family: acumin-pro-wide, sans-serif;
+  font-weight: 800;
+  font-style: italic;
+  font-size: 200px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.PlayButton {
+  align-self: center;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 30px;
+  width: 150px;
+  height: 75px;
+  border: none;
+  font-family: novel-mono-pro, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #FFF5EE;
+  background-color: #EAB38D;
+  border-radius: 25px;
+  line-height: 70px;
+}
+
+.FooterElement {
+  margin-bottom: 50%;
+  text-align: center;
+  font-family: acumin-pro-wide, sans-serif;
+  font-weight: 800;
+  font-style: italic;
+  flex-grow: 1;
+  color: #EAB38D;
+  font-size: 20px;
+}
+
+.FooterBar {
+  background-color: #FFF5EE;
+  position: fixed;
+  padding: 10px 10px 0px 10px;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+}
+
+.FooterButton {
+  text-align: center;
+  background-color: #FFF5EE;
+  color: #EAB38D;
+  font-family: acumin-pro-wide, sans-serif;
+  border: none;
+  font-weight: 800;
+  font-style: italic;
+  font-size: 30px;
+  height: 60px;
+  width: 95%;
+  text-decoration: none;
+  margin-top: 5px;
+  line-height: 60px;
+}
+
+.AboutHeader {
+  background-color: #FFF5EE;
+  color: #EAB38D;
+  font-size: 75px;
+  font-family: acumin-pro-wide, sans-serif;
+  text-align: center;
+  font-style: italic;
+}
+
+.AboutText {
+  color: #FFF5EE;
+  font-size: 30px;
+  font-family: novel-mono-pro, sans-serif;
+  font-weight: bold;
+  margin-left: 10px;
+  margin-top: 0;
+}
+
+.HomeButton {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  width: 150px;
+  height: 75px;
+  border: none;
+  font-family: novel-mono-pro, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  font-style: italic;
+  color: #FFF5EE;
+  background-color: #EAB38D;
+  border-radius: 25px;
+  line-height: 80px;
+}
+
+.PlayInAbout {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  width: 150px;
+  height: 75px;
+  border: none;
+  font-family: novel-mono-pro, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  font-style: italic;
+  color: #FFF5EE;
+  background-color: #EAB38D;
+  border-radius: 25px;
+  margin-left: 1102px;
+  line-height: 80px;
+}
+
+.Italic {
+  font-style: italic;
+>>>>>>> Stashed changes
+}
+
+.ArtistForm {
+	margin: auto auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: #E3ECED;
+	padding: 30px;
+	border-radius: 25px;
+	width: 45%;
+}
+
+.ArtistSubmit {
+	margin: 0 auto;
+}
+
+.SubmitButton {
+  text-align: center;
+  text-decoration: none;
+  width: 150px;
+  height: 75px;
+  border: none;
+  font-family: novel-mono-pro, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  font-style: italic;
+  color: #FFF5EE;
+  background-color: #EAB38D;
+  border-radius: 25px;
+	margin: 20px auto;
+	position: relative;
+	left: 25%;
+	width: 50%;
+}
+
+.ArtistEntry {
+  text-align: center;
+	text-decoration: none;
+	width: 300px;
+  height: 75px;
+  border: none;
+  font-family: novel-mono-pro, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  font-style: italic;
+  background-color: #EAB38D;
+  border-radius: 25px;
+	margin: 20px;
+}
+
+.PlayHeaderText {
+	font-size: 35px;
+  text-align: center;
+  color: gray;
+  font-family: novel-mono-pro, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  padding: 0px;
+  margin: 0px;
 }
