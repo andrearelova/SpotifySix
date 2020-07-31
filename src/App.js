@@ -40,7 +40,7 @@ const Landing = () => (
 
 const About = () => (
     <div className="App">
-        <h1 className="AboutHeader">about this website</h1>
+        <h1 className="PagesHeader">about this website</h1>
         <span><Link className="HomeButton" to="/">home</Link> <Link className="PlayInAbout" to="/play">play</Link></span>
         <p></p>
         <p className="AboutText">welcome to <span className="Italic">six</span>, where you find out the music industry is not as vast as it may seem!
@@ -55,10 +55,15 @@ const Play = () => (
     <div className="App">
         <h1>(play screen goes here)</h1>
         <Link className="HomeButton" to="/">home</Link>
+        <Link className="ResultsButton" to="/results">get results</Link>
     </div>
 );
 
 const Results = () => (
-
+    <div className="App">
+      <h1 className="PagesHeader">results</h1>
+      <h1>lol idk how to do this -andrea</h1>
+      <span><Link className="HomeButton" to="/">home</Link> <Link className="PlayInAbout" to="/play">play again</Link></span>
+    </div>
 );
 export default App;

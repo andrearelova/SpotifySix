@@ -100,7 +100,7 @@ white: #FFF5EE
   line-height: 60px;
 }
 
-.AboutHeader {
+.PagesHeader {
   background-color: #FFF5EE;
   color: #EAB38D;
   font-size: 75px;
@@ -132,8 +132,9 @@ white: #FFF5EE
   color: #FFF5EE;
   background-color: #EAB38D;
   border-radius: 25px;
-  margin-left: 8px;
-  line-height: 80px;
+  margin-left: 390px;
+  margin-right: 10px;
+  line-height: 75px;
 }
 
 .PlayInAbout {
@@ -150,8 +151,8 @@ white: #FFF5EE
   color: #FFF5EE;
   background-color: #EAB38D;
   border-radius: 25px;
-  margin-left: 1102px;
-  line-height: 80px;
+  margin-left: 320px;
+  line-height: 75px;
 }
 
 .Italic {
