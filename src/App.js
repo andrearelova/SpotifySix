@@ -15,6 +15,7 @@ function App() {
                           <Route exact path="/" component={Landing}/>
                           <Route path="/about" component={About}/>
                           <Route path="/play" component={Play}/>
+                          <Route path="/results" component={Results}/>
                       </Switch>
             </Router>
             </div>
@@ -57,4 +58,7 @@ const Play = () => (
     </div>
 );
 
+const Results = () => (
+
+);
 export default App;
