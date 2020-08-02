@@ -53,9 +53,18 @@ const About = () => (
 
 const Play = () => (
     <div className="App">
-        <h1>(play screen goes here)</h1>
-        <Link className="HomeButton" to="/">home</Link>
-        <Link className="ResultsButton" to="/results">get results</Link>
+        <div className="PlayPage">
+					<h2 className="PlayHeader">Enter artists here:</h2>
+  				<form action="" className="ArtistForm">
+						<input className="ArtistEntry" type="text" id="artist1" name="artist1" placeholder="Artist 1"/>
+						<input className="ArtistEntry" type="text" id="artist2" name="artist2" placeholder="Artist 2"/>
+						<br/>
+						<input className="SubmitBtn" type="submit" value="Submit" target="/results"/>
+					</form>
+					<Link className="HomeButtonPlay" to="/">home</Link>
+					<br/>
+     			{/*<Link className="ResultsButton" to="/results">get results</Link>*/}
+				</div>        
     </div>
 );
 
