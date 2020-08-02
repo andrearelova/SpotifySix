@@ -12,9 +12,7 @@ form.addEventListener('submit', (event) => {
 		artist2
 	};
 
-	// instead of POSTing to the API_URL, we could just do all the stuff on client side.
-	// i think its more secure to use an express server, so that the clinet cant mess with
-	// our entire app from the webpage (make API requests in our apps name, from their computer)
+	// instead of POSTing to the API_URL, we could just do all the stuff on client side
 	fetch(API_URL, {
 			method: 'POST',
 			body: JSON.stringify(post),

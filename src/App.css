@@ -1,7 +1,10 @@
+/*website colors:
+blue: #B5D4D8
+orange: #EAB38D
+white: #FFF5EE
+*/
+
 .App {
-<<<<<<< Updated upstream
-  
-=======
   background-color: #B5D4D8;
   min-height: 100vh;
   display: flex;
@@ -97,7 +100,7 @@
   line-height: 60px;
 }
 
-.AboutHeader {
+.PagesHeader {
   background-color: #FFF5EE;
   color: #EAB38D;
   font-size: 75px;
@@ -152,7 +155,6 @@
 
 .Italic {
   font-style: italic;
->>>>>>> Stashed changes
 }
 
 .ArtistForm {
@@ -174,6 +176,53 @@
   text-align: center;
   text-decoration: none;
   width: 150px;
+}
+
+.PlayHeader {
+	font-size: 35px;
+  text-align: center;
+  color: #FFF5EE;
+  font-family: novel-mono-pro, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  padding: 0px;
+  margin: 50px auto;
+}
+
+.PlayPage {
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.ArtistForm {
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+}
+
+.ArtistEntry {
+	width: 100%;
+  height: 75px;
+  border: none;
+  font-family: novel-mono-pro, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  font-style: italic;
+  color: #FFF5EE;
+  background-color: #EAB38D;
+	border-radius: 25px;
+	text-align: center;
+	margin: 10px auto;
+}
+
+.SubmitBtn {
+	display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  width: 75%;
   height: 75px;
   border: none;
   font-family: novel-mono-pro, sans-serif;
