@@ -160,14 +160,13 @@ white: #FFF5EE
 }
 
 .PlayHeader {
-	font-size: 35px;
+  background-color: #FFF5EE;
+  color: #EAB38D;
+  font-size: 75px;
+  font-family: acumin-pro-wide, sans-serif;
   text-align: center;
-  color: #FFF5EE;
-  font-family: novel-mono-pro, sans-serif;
-  font-weight: 700;
-  font-style: normal;
-  padding: 0px;
-  margin: 50px auto;
+  font-style: italic;
+  width: 100vw;
 }
 
 .PlayPage {
@@ -196,7 +195,7 @@ white: #FFF5EE
   background-color: #EAB38D;
 	border-radius: 25px;
 	text-align: center;
-	margin: 10px auto;
+	margin: 25px auto;
 }
 
 .SubmitBtn {
