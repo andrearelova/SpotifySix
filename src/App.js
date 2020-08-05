@@ -208,7 +208,7 @@ class Graph {
       q.enqueue(startingNode);
 
       // loop until queue is element
-      while (!q.isEmpty()) {
+      while (!visited[endNode]) {
         // get the element from the queue
         var getQueueElement = q.dequeue();
 
@@ -227,11 +227,7 @@ class Graph {
               visited[neigh] = true;
               q.enqueue(neigh);
           }
-
-          if (visited[endNode]) {
-              break;
-          }
-       }
+        }
      }
    }
 }
