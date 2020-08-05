@@ -139,9 +139,27 @@ const Results = () => (
       <span><Link className="HomeButton" to="/">home</Link> <Link className="PlayInAbout" to="/play">play again</Link></span>
     </div>
 )
-function Graph() {
-  
+
+// create a graph class
+class Graph {
+    // defining vertex array and
+    // adjacent list
+    constructor(noOfVertices)
+    {
+        this.noOfVertices = noOfVertices;
+        this.AdjList = new Map(); 
+    }
+
+    // functions to be implemented
+
+    // addVertex(v) r
+    // addEdge(v, w)
+    // printGraph()
+
+    // bfs(v)
+    // dfs(v)
 }
+
 function Dijsktras() {
 
 }
