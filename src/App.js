@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import {
     BrowserRouter as Router,
@@ -51,27 +51,92 @@ const About = () => (
     </div>
 );
 
-const Play = () => (
+class Play extends Component {	
+	constructor() {
+		super();
+		this.state = {
+			degree: 0,
+			artist1: '',
+			artist2: '',
+			renderText: ''
+		};
+	}
+
+	formSubmitted(event) {
+		var API_URL = 'http://localhost:5000/submissions';
+		event.preventDefault();
+		
+		const post = {
+			artist1: this.state.artist1,
+			artist2: this.state.artist2
+		};
+	
+		fetch(API_URL, {
+				method: 'POST',
+				body: JSON.stringify(post),
+				headers: {
+					'content-type': 'application/json'
+				}
+			}).then(response => response.json())
+			.then((submittedArtists) => {
+				console.log(submittedArtists);
+				this.setState({
+					degree: submittedArtists.deg,
+				});
+
+				this.setState({
+					renderText: `${this.state.artist1} and ${this.state.artist2} are ${this.state.degree} degrees of separation apart!`
+				});
+			})
+	}
+
+	displayArtists(submittedArtists) {		
+		this.setState({
+		degree: submittedArtists.deg
+		});
+	}
+	
+
+
+	artist1Changed(event) {
+		this.setState({
+			artist1: event.target.value
+		});
+	}
+
+	artist2Changed(event) {
+		this.setState({
+		artist2: event.target.value
+	});
+	}
+
+	// Render function for this component
+	render() {
+		return(
     <div className="App">
         <div className="PlayPage">
-					<h2 className="PlayHeader">enter artists here:</h2>
-  				<form action="" className="ArtistForm">
-						<input className="ArtistEntry" type="text" id="artist1" name="artist1" placeholder="artist 1"/>
-						<input className="ArtistEntry" type="text" id="artist2" name="artist2" placeholder="artist 2"/>
+					<h2 className="PlayHeader">Enter artists here:</h2>
+  				<form onSubmit={(event) => this.formSubmitted(event)} action="" className="ArtistForm">
+						<input onChange={(event) => this.artist1Changed(event)} className="ArtistEntry" type="text" id="artist1" name="artist1" placeholder="Artist 1"/>
+						<input onChange={(event) => this.artist2Changed(event)} className="ArtistEntry" type="text" id="artist2" name="artist2" placeholder="Artist 2"/>
 						<br/>
-						<Link className="SubmitBtn" to="/results">submit</Link>
+						<button className="SubmitBtn" type="submit" value="Submit" target="/results">submit</button>
 					</form>
-					<Link className="HomeButtonPlay" to="/">home</Link>
+					<h2>{this.state.renderText}</h2>
+					<h2>To play again, simply type in some different artists and hit submit!</h2>
+					<Link className="HomeButton" to="/">home</Link>
 					<br/>
-				</div>
+				</div>        
     </div>
-);
+	)}
+}
 
+// This page is irrelevant currently
 const Results = () => (
     <div className="App">
       <h1 className="PagesHeader">results</h1>
-      <h1>lol idk how to do this -andrea</h1>
+      <h1 className="result">{this.state.artist1} and {this.state.artist2} are {this.state.degree} degrees of separation apart!</h1>
       <span><Link className="HomeButton" to="/">home</Link> <Link className="PlayInAbout" to="/play">play again</Link></span>
     </div>
-);
+)
 export default App;

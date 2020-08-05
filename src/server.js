@@ -15,8 +15,8 @@ const jsonParser = bodyParser.json();
 const filter = new Filter();
 
 // application parameters (gotta make these secret somehow)
-const clientID = 'put client ID here';
-const clientSecret = 'put client secret here';
+const clientID = '8f2d826b76df44be84cb145b8286b701';
+const clientSecret = '37330adb659145a8893b1c2adba216a0';
 var accessToken = '';
 
 getToken(); // get an access token when the server starts up
@@ -51,10 +51,10 @@ app.post('/submissions', jsonParser, (req, res) => {
 
 // where most of the degrees of separation work happens
 function findDegree(artist1, artist2) {
-	search(convertToURL(artist1), accessToken);
-	search(convertToURL(artist2), accessToken);
+	firstArtist = getArtistInfo(convertToURL(artist1), accessToken);
+	secondArtist = getArtistInfo(convertToURL(artist2), accessToken);
 
-	return 999;
+	return 10;
 }
 
 function convertToURL(artist) {
@@ -64,12 +64,30 @@ function convertToURL(artist) {
 	return artistURL;
 }
 
-// searches the spotify database
-function search(artist, token){
+function getArtistInfo(artist, token) {
+	result = {}
 	fetch(`https://api.spotify.com/v1/search?query=${artist}&type=artist&limit=1`, {
 		method: 'GET',
 		headers: { 'Authorization' : 'Bearer ' + token }
-	}).then((response) => response.json()).then((data) => {console.log(data)});
+	}).then((response) => response.json())
+	.then((data) => {
+		result = data.artists.items[0];
+		console.log(result);
+	});
+
+	return result;
+}
+
+// searches the spotify database
+function getRelatedArtists(artistID, token){
+	let relatedArtists = [];
+	fetch(`https://api.spotify.com/v1/artists/${artistID}/albums`, {
+		method: 'GET',
+		headers: { 'Authorization' : 'Bearer ' + token }
+	}).then((response) => response.json())
+	.then((data) => {
+		console.log(data);
+	});
 }
 
 // gets the access token for the user

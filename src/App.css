@@ -181,6 +181,7 @@ white: #FFF5EE
 	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
+	width: 75%;
 }
 
 .ArtistEntry {
@@ -202,7 +203,7 @@ white: #FFF5EE
 	display: inline-block;
   text-align: center;
   text-decoration: none;
-  width: 75%;
+  width: 100%;
   height: 75px;
   border: none;
   font-family: novel-mono-pro, sans-serif;
@@ -210,10 +211,10 @@ white: #FFF5EE
   font-size: 20px;
   font-style: italic;
   color: #FFF5EE;
-  background-color: #EAB38D;
-	border-radius: 25px;
-	margin: 0px auto 20px auto;
-  line-height: 75px;
+  background-color: #ff832a;
+  border-radius: 25px;
+	margin: 20px auto;
+	position: relative;
 }
 
 .HomeButtonPlay {
@@ -245,11 +246,11 @@ white: #FFF5EE
   border: none;
   font-family: novel-mono-pro, sans-serif;
   font-weight: 700;
-  font-size: 20px;
-  font-style: italic;
-  color: #FFF5EE;
-  background-color: #EAB38D;
-	border-radius: 25px;
-	margin: 10 auto;
-  line-height: 75px;
+  font-style: normal;
+  padding: 0px;
+  margin: 0px;
+}
+
+.result {
+	text-align: center;
 }
