@@ -152,7 +152,6 @@ class Graph {
 
     // functions to be implemented
 
-    // addVertex(v)
     addVertex(node)
     {
       // initialize the adjacent list with a
@@ -161,7 +160,6 @@ class Graph {
       this.AdjList.set(node, []);
     }
 
-    // addEdge(v, w)
     addEdge(v, w, songID)
     {
       // get the list for vertex v and put the
@@ -173,7 +171,6 @@ class Graph {
       this.AdjList.get(w).push(node:v, songID:songID);
     }
 
-    // printGraph()
     printGraph()
     {
       // get all the vertices
@@ -196,8 +193,8 @@ class Graph {
         console.log(i + " -> " + conc);
       }
     }
-    Dijsktras(startNode, endNode) {
 
+    Dijsktras(startingNode, endNode) {
       // create a visited array
       var visited = [];
       for (var i = 0; i < this.noOfVertices; i++)
@@ -229,6 +226,10 @@ class Graph {
           if (!visited[neigh]) {
               visited[neigh] = true;
               q.enqueue(neigh);
+          }
+
+          if (visited[endNode]) {
+              break;
           }
        }
      }
