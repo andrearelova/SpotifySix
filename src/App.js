@@ -144,9 +144,8 @@ const Results = () => (
 class Graph {
     // defining vertex array and
     // adjacent list
-    constructor(noOfVertices)
+    constructor()
     {
-        this.noOfVertices = noOfVertices;
         this.AdjList = new Map();
     }
 
@@ -179,7 +178,7 @@ class Graph {
     var get_keys = this.AdjList.keys();
 
     // iterate over the vertices
-    for (var i of get_keys)  
+    for (var i of get_keys)
     {
         // great the corresponding adjacency list
         // for the vertex
