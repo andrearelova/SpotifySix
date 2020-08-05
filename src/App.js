@@ -45,7 +45,7 @@ const About = () => (
         <p></p>
         <p className="AboutText">welcome to <span className="Italic">six</span>, where you find out the music industry is not as vast as it may seem!
             simply type in the names of two musical artists, and this app will reveal how many degrees of separation exist between them. with the help of
-            the spotify web api, the app implements dijkstra's shortest path algorithm on the two artists inputted, finds the shortest path between them,
+            the spotify web api, the app implements breadth-first search algorithm on the two artists inputted, finds the shortest path between them,
             and returns a list of songs that take you from one artist to the other along with the degrees of separation between them. the goal of this app
             is for almost any path to be six degrees or less, so feel free to challenge us as much as you want!</p>
     </div>
