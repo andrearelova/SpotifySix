@@ -51,7 +51,7 @@ const About = () => (
     </div>
 );
 
-class Play extends Component {	
+class Play extends Component {
 	constructor() {
 		super();
 		this.state = {
@@ -65,12 +65,12 @@ class Play extends Component {
 	formSubmitted(event) {
 		var API_URL = 'http://localhost:5000/submissions';
 		event.preventDefault();
-		
+
 		const post = {
 			artist1: this.state.artist1,
 			artist2: this.state.artist2
 		};
-	
+
 		fetch(API_URL, {
 				method: 'POST',
 				body: JSON.stringify(post),
@@ -90,12 +90,12 @@ class Play extends Component {
 			})
 	}
 
-	displayArtists(submittedArtists) {		
+	displayArtists(submittedArtists) {
 		this.setState({
 		degree: submittedArtists.deg
 		});
 	}
-	
+
 
 
 	artist1Changed(event) {
@@ -115,18 +115,18 @@ class Play extends Component {
 		return(
     <div className="App">
         <div className="PlayPage">
-					<h2 className="PlayHeader">Enter artists here:</h2>
+					<h2 className="PlayHeader">enter artists here:</h2>
   				<form onSubmit={(event) => this.formSubmitted(event)} action="" className="ArtistForm">
-						<input onChange={(event) => this.artist1Changed(event)} className="ArtistEntry" type="text" id="artist1" name="artist1" placeholder="Artist 1"/>
-						<input onChange={(event) => this.artist2Changed(event)} className="ArtistEntry" type="text" id="artist2" name="artist2" placeholder="Artist 2"/>
+						<input onChange={(event) => this.artist1Changed(event)} className="ArtistEntry" type="text" id="artist1" name="artist1" placeholder="artist 1"/>
+						<input onChange={(event) => this.artist2Changed(event)} className="ArtistEntry" type="text" id="artist2" name="artist2" placeholder="artist 2"/>
 						<br/>
 						<button className="SubmitBtn" type="submit" value="Submit" target="/results">submit</button>
 					</form>
 					<h2>{this.state.renderText}</h2>
-					<h2>To play again, simply type in some different artists and hit submit!</h2>
-					<Link className="HomeButton" to="/">home</Link>
+					<h2 className="AboutText">to play, simply type in two different artists and click submit!</h2>
+					<Link className="HomeButtonPlay" to="/">home</Link>
 					<br/>
-				</div>        
+				</div>
     </div>
 	)}
 }
