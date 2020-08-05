@@ -139,8 +139,10 @@ const Results = () => (
       <span><Link className="HomeButton" to="/">home</Link> <Link className="PlayInAbout" to="/play">play again</Link></span>
     </div>
 )
-
-function Dijsktras() {
+function Graph() {
   
+}
+function Dijsktras() {
+
 }
 export default App;
