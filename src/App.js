@@ -194,9 +194,10 @@ class Graph {
         console.log(i + " -> " + conc);
       }
     }
+    Dijsktras(startNode, endNode) {
+      
+    }
 }
 
-function Dijsktras() {
 
-}
 export default App;
