@@ -146,29 +146,31 @@ class Graph {
     // adjacent list
     constructor()
     {
-        this.AdjList = new Map();
+      this.nodes = [];
+      this.AdjList = new Map();
     }
 
     // functions to be implemented
 
     // addVertex(v)
-    addVertex(v)
+    addVertex(node)
     {
       // initialize the adjacent list with a
       // null array
-      this.AdjList.set(v, []);
+      this.nodes.push(node);
+      this.AdjList.set(node, []);
     }
 
     // addEdge(v, w)
-    addEdge(v, w)
+    addEdge(v, w, songID)
     {
       // get the list for vertex v and put the
       // vertex w denoting edge between v and w
-      this.AdjList.get(v).push(w);
+      this.AdjList.get(v).push(node:w, songID:songID);
 
       // Since graph is undirected,
       // add an edge from w to v also
-      this.AdjList.get(w).push(v);
+      this.AdjList.get(w).push(node:v, songID:songID);
     }
 
     // printGraph()
@@ -195,7 +197,7 @@ class Graph {
       }
     }
     Dijsktras(startNode, endNode) {
-      
+
     }
 }
 
