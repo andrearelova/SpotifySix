@@ -135,8 +135,12 @@ class Play extends Component {
 const Results = () => (
     <div className="App">
       <h1 className="PagesHeader">results</h1>
-      <h1 className="result">{this.state.artist1} and {this.state.artist2} are {this.state.degree} degrees of separation apart!</h1>
+      <h1 className="AboutText">{this.state.artist1} and {this.state.artist2} are {this.state.degree} degrees of separation apart!</h1>
       <span><Link className="HomeButton" to="/">home</Link> <Link className="PlayInAbout" to="/play">play again</Link></span>
     </div>
 )
+
+function Dijsktras() {
+  
+}
 export default App;
