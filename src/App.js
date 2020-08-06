@@ -140,6 +140,15 @@ const Results = () => (
     </div>
 )
 
+//perform the "game"
+function Game(artist1, artist2) {
+  //add artist 1
+  //while loop:
+  //  get array of artists and add those artists
+  //  check if any of those artists are artist 2. if so, stop loop
+  //  if not, get array of artists for each artists, add those artists, check again
+}
+
 // create a graph class
 class Graph {
     // defining vertex array and
@@ -190,7 +199,7 @@ class Graph {
             conc += j + " ";
 
         // print the vertex and its adjacency list
-        console.log(i + " -> " + conc);
+        renderText: ""; //fixme
       }
     }
 
