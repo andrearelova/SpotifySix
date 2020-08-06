@@ -142,6 +142,7 @@ const Results = () => (
 
 //perform the "game"
 function Game(artist1, artist2) {
+  let g = new Graph();
   //add artist 1
   //while loop:
   //  get array of artists and add those artists
@@ -181,6 +182,7 @@ class Graph {
       this.AdjList.get(w).push(node:v, songID:songID);
     }
 
+    //probably delete later
     printGraph()
     {
       // get all the vertices
