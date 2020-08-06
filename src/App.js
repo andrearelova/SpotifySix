@@ -147,6 +147,7 @@ function Game(artist1, artist2) {
   //  get array of artists and add those artists
   //  check if any of those artists are artist 2. if so, stop loop
   //  if not, get array of artists for each artists, add those artists, check again
+  //once you have added artist 2 to the list, perform BFS and print out "___ collaborated with ___ on ____" for each degree
 }
 
 // create a graph class
