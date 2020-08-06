@@ -203,7 +203,6 @@ class Graph {
             conc += j + " ";
 
         // print the vertex and its adjacency list
-        renderText: ""; //fixme
       }
     }
 
