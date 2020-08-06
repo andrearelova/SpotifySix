@@ -247,6 +247,11 @@ white: #FFF5EE
   margin: 0px;
 }
 
-.result {
-	text-align: center;
+.ResultText {
+  color: #EAB38D;
+  font-size: 30px;
+  font-family: novel-mono-pro, sans-serif;
+  font-weight: bold;
+  margin-left: 10px;
+  margin-top: 0;
 }

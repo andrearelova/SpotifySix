@@ -122,7 +122,7 @@ class Play extends Component {
 						<br/>
 						<button className="SubmitBtn" type="submit" value="Submit" target="/results">submit</button>
 					</form>
-					<h2 className="AboutText">{this.state.renderText}</h2>
+					<h2 className="ResultText">{this.state.renderText}</h2>
 					<h2 className="AboutText">to play, simply type in two different artists and click submit!</h2>
 					<Link className="HomeButtonPlay" to="/">home</Link>
 					<br/>
