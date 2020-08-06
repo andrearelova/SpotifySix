@@ -211,7 +211,7 @@ class Graph {
     {
       // create a visited array
       var visited = [];
-      for (var i = 0; i < nodes.length; i++)
+      for (var i = 0; i < this.nodes.length; i++)
         visited[i] = false;
 
       // Create an object for queue
