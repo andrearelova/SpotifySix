@@ -238,6 +238,8 @@ class Graph {
               q.enqueue(neigh);
           }
         }
+
+        return q;
      }
    }
 }
