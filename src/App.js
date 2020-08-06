@@ -176,11 +176,11 @@ class Graph {
     {
       // get the list for vertex v and put the
       // vertex w denoting edge between v and w
-      this.AdjList.get(v).push(node:w, songID:songID);
+      this.AdjList.get(v).push(w, songID);
 
       // Since graph is undirected,
       // add an edge from w to v also
-      this.AdjList.get(w).push(node:v, songID:songID);
+      this.AdjList.get(w).push(v, songID);
     }
 
     //probably delete later
