@@ -144,7 +144,8 @@ const Results = () => (
 function Game(artist1, artist2) {
   let g = new Graph();
   //add artist 1
-  //while loop:
+  g.addVertex(artist1);
+  //loop:
   //  get array of artists and add those artists
   //  check if any of those artists are artist 2. if so, stop loop
   //  if not, get array of artists for each artists, add those artists, check again
