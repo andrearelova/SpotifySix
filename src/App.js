@@ -204,7 +204,8 @@ class Graph {
       }
     }
 
-    BreadthFirst(startingNode, endNode) {
+    BreadthFirst(startingNode, endNode)
+    {
       // create a visited array
       var visited = [];
       for (var i = 0; i < nodes.length; i++)
