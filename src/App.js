@@ -141,7 +141,8 @@ const Results = () => (
 )
 
 //perform the "game"
-function Game(artist1, artist2) {
+function Game(artist1, artist2)
+{
   let g = new Graph();
   //add artist 1
   g.addVertex(artist1);
@@ -150,6 +151,7 @@ function Game(artist1, artist2) {
   //  check if any of those artists are artist 2. if so, stop loop
   //  if not, get array of artists for each artists, add those artists, check again
   //once you have added artist 2 to the list, perform BFS and print out "___ collaborated with ___ on ____" for each degree
+  //the size of the queue from the BFS minus 1 is the number of degrees
 }
 
 // create a graph class
