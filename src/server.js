@@ -5,6 +5,7 @@ const Filter = require('bad-words');
 const bodyParser = require('body-parser');
 const Buffer = require('buffer/').Buffer;
 const fetch = require('node-fetch');
+require('dotenv').config()
 
 const app = express();
 app.use(cors());
@@ -16,10 +17,10 @@ const jsonParser = bodyParser.json();
 const filter = new Filter();
 
 // application parameters (gotta make these secret somehow)
-const clientID = '8f2d826b76df44be84cb145b8286b701';
-const clientSecret = '37330adb659145a8893b1c2adba216a0';
+const clientID = process.env.REACT_APP_CLIENT_ID;
+const clientSecret = process.env.REACT_APP_CLIENT_SECRET;
 var accessToken = '';
-
+console.log(process.env.REACT_APP_CLIENT_ID);
 getToken(); // get an access token when the server starts up
 
 // POST request to submissions page
