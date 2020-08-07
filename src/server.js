@@ -16,9 +16,9 @@ const jsonParser = bodyParser.json();
 const filter = new Filter();
 
 // application parameters (gotta make these secret somehow)
-const clientID = '8f2d826b76df44be84cb145b8286b701';
-const clientSecret = '37330adb659145a8893b1c2adba216a0';
-var accessToken = '';
+const clientID = config.CLIENT_ID;
+const clientSecret = config.CLIENT_SECRET;
+var accessToken = config.ACCESS_TOKEN;
 
 getToken(); // get an access token when the server starts up
 
