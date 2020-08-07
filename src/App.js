@@ -7,6 +7,7 @@ import {
     Link
 } from "react-router-dom";
 
+// Main App component
 function App() {
         return (
             <div>
@@ -15,13 +16,13 @@ function App() {
                           <Route exact path="/" component={Landing}/>
                           <Route path="/about" component={About}/>
                           <Route path="/play" component={Play}/>
-                          <Route path="/results" component={Results}/>
                       </Switch>
             </Router>
             </div>
         );
 }
 
+// Landing page component
 const Landing = () => (
     <div className="App">
         <h2 className="LandingWelcome">welcome to</h2>
@@ -38,6 +39,7 @@ const Landing = () => (
     </div>
 );
 
+// About page component
 const About = () => (
     <div className="App">
         <h1 className="PagesHeader">about this website</h1>
@@ -51,6 +53,7 @@ const About = () => (
     </div>
 );
 
+// Play page component, where user inputs artists and requests results
 class Play extends Component {
 	constructor() {
 		super();
@@ -62,7 +65,8 @@ class Play extends Component {
 		};
 	}
 
-	formSubmitted(event) {
+	// Called when user clicks Submit button
+	async formSubmitted(event) {
 		var API_URL = 'http://localhost:5000/submissions';
 		event.preventDefault();
     this.setState({
@@ -74,39 +78,32 @@ class Play extends Component {
 			artist2: this.state.artist2
 		};
 
-		fetch(API_URL, {
-				method: 'POST',
-				body: JSON.stringify(post),
-				headers: {
-					'content-type': 'application/json'
-				}
-			}).then(response => response.json())
-			.then((submittedArtists) => {
-				console.log(submittedArtists);
-				this.setState({
-					degree: submittedArtists.deg,
-				});
+		// fetch() result from server.js
+		let response = await fetch(API_URL, {
+			method: 'POST',
+			body: JSON.stringify(post),
+			headers: {
+				'content-type': 'application/json'
+			}
+		});
 
-				this.setState({
-					renderText: `${this.state.artist1} and ${this.state.artist2} are ${this.state.degree} degree(s) of separation apart!`
-				});
-			})
-	}
-
-	displayArtists(submittedArtists) {
+		let result = await response.json();
 		this.setState({
-		degree: submittedArtists.deg
+			degree: result.deg,
+		});
+		this.setState({
+			renderText: `${this.state.artist1} and ${this.state.artist2} are ${this.state.degree} degree(s) of separation apart!`
 		});
 	}
 
-
-
+	// Repeatedly called while typing in text box
 	artist1Changed(event) {
 		this.setState({
 			artist1: event.target.value
 		});
 	}
 
+	// Repeatedly called while typing in text box
 	artist2Changed(event) {
 		this.setState({
 		artist2: event.target.value
@@ -133,15 +130,5 @@ class Play extends Component {
     </div>
 	)}
 }
-
-// This page is irrelevant currently
-const Results = () => (
-    <div className="App">
-      <h1 className="PagesHeader">results</h1>
-      <h1 className="AboutText">{this.state.artist1} and {this.state.artist2} are {this.state.degree} degrees of separation apart!</h1>
-      <span><Link className="HomeButton" to="/">home</Link> <Link className="PlayInAbout" to="/play">play again</Link></span>
-    </div>
-)
-
 
 export default App;
