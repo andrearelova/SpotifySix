@@ -65,6 +65,9 @@ class Play extends Component {
 	formSubmitted(event) {
 		var API_URL = 'http://localhost:5000/submissions';
 		event.preventDefault();
+    this.setState({
+    renderText: "Calculating..."
+    })
 
 		const post = {
 			artist1: this.state.artist1,
