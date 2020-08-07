@@ -51,9 +51,10 @@ app.post('/submissions', jsonParser, (req, res) => {
 });
 
 function findDegree(artist1, artist2) {
-    let artists = getRelatedArtists(artist1);
+		let artists = getRelatedArtists(artist1);
+		result = 0;
     if (artists.indexOf(artist2) !== -1) {
-        console.log(artist1 + " and " + artist2 + " are one degree apart!")
+				console.log(artist1 + " and " + artist2 + " are one degree apart!")
     }
     else {
         for (let i = 0; i < artists.length; i++) {
@@ -71,8 +72,9 @@ function findDegree(artist1, artist2) {
 function getRelatedArtists(artist) {
     let artists =[];
     let albums = [];
-    let url1 = convertToURL(artist);
-    // gets the first artist's artist ID
+		let url1 = convertToURL(artist);
+		
+    // gets the first artist's spotify ID
     fetch(`https://api.spotify.com/v1/search?query=${url1}&type=artist&limit=1`, {
         method: 'GET',
         headers: {
@@ -81,7 +83,6 @@ function getRelatedArtists(artist) {
     }).then((response) => response.json())
         .then((data) => {
             artist = data.artists.items[0].id;
-            //console.log("fetched first artist id: " + artist);
 
             // search the artist's albums
             fetch(`https://api.spotify.com/v1/artists/${artist}/albums`, {
@@ -91,11 +92,10 @@ function getRelatedArtists(artist) {
                 }
             }).then((response) => response.json())
                 .then((albumData) => {
-                    //console.log("");
+
                     // for every album by the artist
                     for (let i = 0; i < albumData.items.length; ++i) {
                         albums[i] = albumData.items[i].id;
-                        //console.log(albumData.items[i].name);
                         let current = albums[i];
 
                         // get the tracks for the album
@@ -106,8 +106,6 @@ function getRelatedArtists(artist) {
                             }
                         }).then((response) => response.json())
                             .then((trackData) => {
-                                //console.log("");
-                                //console.log("tracks: " + trackData.items.length);
 
                                 // for every track on the album
                                 for (let j = 0; j < trackData.items.length; ++j) {
@@ -118,7 +116,6 @@ function getRelatedArtists(artist) {
                                             console.log(trackData.items[j].artists[k].name);
                                         }
                                     }
-                                    //console.log(trackData.items[j].name);
                                 }
                             });
                     }
@@ -127,6 +124,7 @@ function getRelatedArtists(artist) {
     return artists;
 }
 
+// converts user-input string to a usable value for the Spotify API
 function convertToURL(artist) {
     let artistURL = artist.replace(/ /g, '+');
     console.log(`artist url: ${artistURL}`);
@@ -166,6 +164,124 @@ function getToken() {
             accessToken = clientData.access_token;
             console.log(clientData);
         });
+}
+
+// ========================== GRAPH CREATION ================================
+
+//perform the "game"
+function Game(artist1, artist2)
+{
+  let g = new Graph();
+  //add artist 1
+  g.addVertex(artist1);
+  //loop:
+  //  get array of artists and add those artists and an edge from first artist to each in the array
+  //  check if any of those artists are artist 2. if so, stop loop
+  //  if not, get array of artists for each artists, add those artists, check again
+  //once you have added artist 2 to the list, perform BFS and maybe print out "___ collaborated with ___ on ____" for each degree
+  //the size of the queue from the BFS minus 1 is the number of degrees
+}
+
+// create a graph class
+class Graph {
+    // defining vertex array and
+    // adjacent list
+    constructor()
+    {
+      this.nodes = [];
+      this.AdjList = new Map();
+    }
+
+    // functions to be implemented
+
+    addVertex(node)
+    {
+      // initialize the adjacent list with a
+      // null array
+      this.nodes.push(node);
+      this.AdjList.set(node, []);
+    }
+
+    addEdge(v, w, songID)
+    {
+      // get the list for vertex v and put the
+      // vertex w denoting edge between v and w
+      this.AdjList.get(v).push(w, songID);
+
+      // Since graph is undirected,
+      // add an edge from w to v also
+      this.AdjList.get(w).push(v, songID);
+    }
+
+    BreadthFirst(startingNode, endNode)
+    {
+      // create a visited array
+      var visited = [];
+      for (var i = 0; i < this.nodes.length; i++)
+        visited[i] = false;
+
+      // Create an object for queue
+      var q = new Queue();
+
+      // add the starting node to the queue
+      visited[startingNode] = true;
+      q.enqueue(startingNode);
+
+      // loop until queue is element
+      while (!visited[endNode]) {
+        // get the element from the queue
+        var getQueueElement = q.dequeue();
+
+        // passing the current vertex to callback funtion
+        console.log(getQueueElement);
+
+        // get the adjacent list for current vertex
+        var get_List = this.AdjList.get(getQueueElement);
+
+        // loop through the list and add the element to the
+        // queue if it is not processed yet
+        for (var i in get_List) {
+            var neigh = get_List[i];
+
+          if (!visited[neigh]) {
+              visited[neigh] = true;
+              q.enqueue(neigh);
+          }
+        }
+
+        return q;
+     }
+   }
+}
+
+class Queue {
+  //Array is used to implement a Queue
+  constructor()
+  {
+      this.items = [];
+  }
+
+  // enqueue function
+  enqueue(element)
+  {
+    // adding element to the queue
+    this.items.push(element);
+  }
+
+  // dequeue function
+  dequeue()
+  {
+    // removing element from the queue
+    // returns underflow when called
+    // on empty queue
+    if(this.isEmpty())
+        return "Underflow";
+    return this.items.shift();
+  }
+
+  sizeof() {
+    return this.items.length;
+  }
 }
 
 app.listen(5000, () => console.log('Server running on port 5000...'))
