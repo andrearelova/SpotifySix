@@ -16,9 +16,10 @@ const jsonParser = bodyParser.json();
 const filter = new Filter();
 
 // application parameters (gotta make these secret somehow)
-const clientID = config.CLIENT_ID;
-const clientSecret = config.CLIENT_SECRET;
-var accessToken = config.ACCESS_TOKEN;
+const clientID = process.env.REACT_APP_CLIENT_ID;
+const clientSecret = process.env.REACT_APP_CLIENT_SECRET;
+var accessToken = '';
+
 
 getToken(); // get an access token when the server starts up
 
@@ -73,7 +74,7 @@ function getRelatedArtists(artist) {
     let artists =[];
     let albums = [];
 		let url1 = convertToURL(artist);
-		
+
     // gets the first artist's spotify ID
     fetch(`https://api.spotify.com/v1/search?query=${url1}&type=artist&limit=1`, {
         method: 'GET',
