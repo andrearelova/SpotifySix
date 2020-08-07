@@ -88,7 +88,7 @@ class Play extends Component {
 				});
 
 				this.setState({
-					renderText: `${this.state.artist1} and ${this.state.artist2} are ${this.state.degree} degrees of separation apart!`
+					renderText: `${this.state.artist1} and ${this.state.artist2} are ${this.state.degree} degree(s) of separation apart!`
 				});
 			})
 	}
