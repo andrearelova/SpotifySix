@@ -62,32 +62,52 @@ class Play extends Component {
 		};
 	}
 
-	formSubmitted(event) {
-		var API_URL = 'http://localhost:5000/submissions';
+	async formSubmitted(event) {
+		const API_URL = 'http://localhost:5000/submissions';
 		event.preventDefault();
-
+		this.setState({
+			renderText: "Calculating..."
+		})
+		
 		const post = {
 			artist1: this.state.artist1,
 			artist2: this.state.artist2
 		};
 
-		fetch(API_URL, {
-				method: 'POST',
-				body: JSON.stringify(post),
-				headers: {
-					'content-type': 'application/json'
-				}
-			}).then(response => response.json())
-			.then((submittedArtists) => {
-				console.log(submittedArtists);
-				this.setState({
-					degree: submittedArtists.deg,
-				});
+		let response = await fetch(API_URL, {
+			method: 'POST',
+			body: JSON.stringify(post),
+			headers: {
+				'content-type': 'application/json'
+			}
+		});
 
-				this.setState({
-					renderText: `${this.state.artist1} and ${this.state.artist2} are ${this.state.degree} degrees of separation apart!`
-				});
-			})
+		let data = await response.json();
+		console.log(data);
+		this.setState({
+			degree: data.deg
+		})
+		this.setState({
+			renderText: `${this.state.artist1} and ${this.state.artist2} are ${this.state.degree} degrees of separation apart!`
+		})
+
+		// fetch(API_URL, {
+		// 		method: 'POST',
+		// 		body: JSON.stringify(post),
+		// 		headers: {
+		// 			'content-type': 'application/json'
+		// 		}
+		// 	}).then(response => response.json())
+		// 	.then((submittedArtists) => {
+		// 		console.log(submittedArtists);
+		// 		this.setState({
+		// 			degree: submittedArtists.deg, // receives the degree of separation from the server
+		// 		});
+
+		// 		this.setState({
+		// 			renderText: `${this.state.artist1} and ${this.state.artist2} are ${this.state.degree} degrees of separation apart!`
+		// 		});
+		// 	});
 	}
 
 	displayArtists(submittedArtists) {
