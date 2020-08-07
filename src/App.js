@@ -43,7 +43,7 @@ const Landing = () => (
 const About = () => (
     <div className="App">
         <h1 className="PagesHeader">about this website</h1>
-        <span><Link className="HomeButton" to="/">home</Link> <Link className="PlayInAbout" to="/play">play</Link></span>
+        <span className="AboutButtons"><Link className="HomeButton" to="/">home</Link> <Link className="PlayInAbout" to="/play">play</Link></span>
         <p></p>
         <p className="AboutText">welcome to <span className="Italic">six</span>, where you find out the music industry is not as vast as it may seem!
             simply type in the names of two musical artists, and this app will reveal how many degrees of separation exist between them. with the help of
