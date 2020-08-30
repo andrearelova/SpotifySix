@@ -29,22 +29,23 @@ getToken();
 // POST request to submissions page
 // Entry point for the data coming from React app
 app.post('/submissions', jsonParser, async (req, res) => {
-    console.log("");
-    console.log('received a new POST request to /submissions');
-    console.log("");
     var degree = 0;
 
     var result = {
         artist1: filter.clean(req.body.artist1.toString()),
         artist2: filter.clean(req.body.artist2.toString()),
         deg: degree
-    }
+    };
+
+    console.log("");
+    console.log("Calculating path between " + result.artist1 + " and " + result.artist2 + "...");
+    console.log("");
 
     // Beginning of algorithm to determine the degree of separation
     degree = await findDegree(result.artist1, result.artist2, accessToken);
     result.deg = degree;
 
-    // console.log("Total Spotify API Calls: " + apiCallsMade);
+    console.log("Total Spotify API Calls: " + apiCallsMade);
     apiCallsMade = 0;
 
     res.json(result); // Result will be parsed by client
@@ -55,6 +56,7 @@ app.post('/submissions', jsonParser, async (req, res) => {
 async function findDegree(artist1, artist2) {
     let degree = 0;
     let totalArtists = [];
+    let match = false;
 
     // If the user entered the same artists, the degree is 0
     if (artist1 === artist2) {
@@ -71,6 +73,7 @@ async function findDegree(artist1, artist2) {
     // If the second artist is in the array of related artists, they are 1 degree apart.
     if (artists.indexOf(artist2) !== -1) {
         console.log(artist2 + " collaborated with " + artist1 + " on " + artists[artists.indexOf(artist2) + 1]);
+        match = true;
         return degree;
     } else {
         // If not, we iterate through every even index of the array (artists only) and look at all related artists in a BFS to search for two degrees
@@ -83,22 +86,23 @@ async function findDegree(artist1, artist2) {
             if (artists2.indexOf(artist2) !== -1) {
                 // Find the artist and song where the match was found
                 console.log(artist2 + " collaborated with " + artists[i] + " on " + artists2[artists2.indexOf(artist2) + 1]);
+                match = true;
                 degree++;
                 // Recursively find the relationship between the connecting artist and the original artist
                 await findDegree(artist1, artists[i]);
                 return degree;
             }
-            // If still not found, search further for three degrees using the array of all two-degree artists and songs
-            else {
-                degree++;
-                for (let i = 0; i < totalArtists.length; i += 2) {
-                    let artists3 = await getRelatedArtists(totalArtists[i]);
-                    if (artists3.indexOf(artist2) !== -1) {
-                        console.log(artist2 + " collaborated with " + totalArtists[i] + " on " + artists3[artists3.indexOf(artist2) + 1]);
-                        await findDegree(artist1, totalArtists[i]);
-                        return degree;
-                    }
-                }
+        }
+    }
+    // If still not found, search further for three degrees using the array of all two-degree artists and songs
+    if (!match) {
+        degree += 2;
+        for (let i = 0; i < totalArtists.length; i += 2) {
+            let artists3 = await getRelatedArtists(totalArtists[i]);
+            if (artists3.indexOf(artist2) !== -1) {
+                console.log(artist2 + " collaborated with " + totalArtists[i] + " on " + artists3[artists3.indexOf(artist2) + 1]);
+                await findDegree(artist1, totalArtists[i]);
+                return degree;
             }
         }
     }
