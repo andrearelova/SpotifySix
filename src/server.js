@@ -63,7 +63,7 @@ async function findDegree(artist1, artist2) {
         console.log(artist1 + " is " + artist2);
         return degree;
     } else {
-        // At least one degree apart now
+        // If not, they are at least 1 degree apart
         degree++;
     }
 
@@ -77,6 +77,7 @@ async function findDegree(artist1, artist2) {
         return degree;
     } else {
         // If not, we iterate through every even index of the array (artists only) and look at all related artists in a BFS to search for two degrees
+        degree++;
         for (let i = 0; i < artists.length; i += 2) {
             let artists2 = await getRelatedArtists(artists[i]);
             // Combine every artist and song from the two-degree artists into a single array
@@ -96,11 +97,12 @@ async function findDegree(artist1, artist2) {
     }
     // If still not found, search further for three degrees using the array of all two-degree artists and songs
     if (!match) {
-        degree += 2;
+        degree++;
         for (let i = 0; i < totalArtists.length; i += 2) {
             let artists3 = await getRelatedArtists(totalArtists[i]);
             if (artists3.indexOf(artist2) !== -1) {
                 console.log(artist2 + " collaborated with " + totalArtists[i] + " on " + artists3[artists3.indexOf(artist2) + 1]);
+                match = true;
                 await findDegree(artist1, totalArtists[i]);
                 return degree;
             }
